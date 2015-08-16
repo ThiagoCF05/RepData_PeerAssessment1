@@ -87,3 +87,17 @@ hist(average$steps, main = "Histogram of the Number of Steps per Day (Filling mi
 ```
 
 ## Are there differences in activity patterns between weekdays and weekends?
+
+```{r , echo=TRUE}
+
+updated["week"] <- NA
+
+for(i in 1:dim(updated)[1]){
+  if (weekdays(as.Date(updated$date[i])) == "Saturday" || weekdays(as.Date(updated$date[i])) == "Sunday"){
+    updated$week <- "weekend"
+  } else {
+    updated$week <- "weekday"
+  }
+}
+
+```

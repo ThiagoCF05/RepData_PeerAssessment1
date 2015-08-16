@@ -124,6 +124,15 @@ hist(average$steps, main = &quot;Histogram of the Number of Steps per Day (Filli
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>
+<pre class="r"><code>updated[&quot;week&quot;] &lt;- NA
+
+for(i in 1:dim(updated)[1]){
+  if (weekdays(as.Date(updated$date[i])) == &quot;Saturday&quot; || weekdays(as.Date(updated$date[i])) == &quot;Sunday&quot;){
+    updated$week &lt;- &quot;weekend&quot;
+  } else {
+    updated$week &lt;- &quot;weekday&quot;
+  }
+}</code></pre>
 </div>
 
 
